@@ -1,0 +1,353 @@
+/* =======================
+Global Styling
+======================= */
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  min-height: 100vh;
+  margin: 0;
+  background-image: url("imgs/bg.png");
+  background-attachment: fixed;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  margin-top: -50px;
+}
+/* =======================
+Player Form Styling
+======================= */
+#playerForm {
+  /*
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  */
+  position: relative;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 0 0 10px 2px #ff48a5;
+  width: auto;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin-top: -50px;
+}
+
+#playerForm label {
+  color: white;
+}
+
+#playerForm input[type="text"] {
+  background-color: #444;
+  color: white;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+#playerForm input[type="text"]::placeholder {
+  text-align: center;
+  color: white;
+}
+
+#playerForm input[type="button"] {
+  background-color: #444;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#playerForm input[type="button"]:hover {
+  background-color: #666;
+}
+
+/* =======================
+Game Title Styling
+======================= */
+#gameTitle {
+  font-family: "Press Start 2P", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  color: black;
+  text-align: center;
+  text-shadow: 2px 2px 4px #ff48a5;
+}
+
+.title-pulse {
+    animation: titlePulsePink 1.6s ease-in-out infinite alternate;
+}
+
+/* text-shadow: X-offset Y-offset Blur-radius Color */
+@keyframes titlePulsePink {
+    0% {
+        text-shadow: 2px 2px 4px #ff48a5;
+    }
+    100% {
+        text-shadow: 2px 2px 8px #ff48a5;
+    }
+}
+
+/* =======================
+Game Area Styling
+======================= */
+#gameArea {
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+}
+
+#gameBoard {
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  background: black;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px #ff48a5;
+}
+
+#scoreBoard {
+  color: white;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+#displayName {
+  color: white;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#guessedLetters {
+  color: white;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0 20px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 180px;
+  align-self: flex-start;
+}
+
+/* Top row container for score and name */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+/* Left side container for score and name */
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  gap: 8px;
+}
+
+/* Right side container for guessed letters */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+  padding-right: 10px;
+}
+
+
+/* =======================
+Hangman Figure and th Word
+======================= */
+#word-container {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 60px;
+}
+
+#word {
+  font-size: 1.15rem;
+  font-family: monospace;
+  letter-spacing: 0.3em;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  color: white;
+  position: absolute;
+  bottom: 4.39rem;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+#hangman-container {
+  position: relative;
+  width: 260px;
+  height: 180px;
+  background: #000;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid white;
+  margin: 15px auto;
+  display: block;
+}
+
+#hangman-post,
+#hangman-figure {
+  position: absolute;
+  top: 10px;
+  left: 49%;
+  transform: translateX(-50%);
+  margin: 0;
+  line-height: 1.2;
+  font-family: Consolas, "Courier New", monospace;
+  color: #fff;
+  white-space: pre;
+  font-size: 20px;
+  /* #hangman-container { border: 1px solid white; } */
+}
+
+/* ======================= 
+Fun Stuff
+======================= */
+.flash-wrong {
+  color: #ff4d4d;
+  text-shadow: 0 0 10px #ff4d4d;
+}
+
+.flash-right {
+  color: #64ffda;
+  text-shadow: 0 0 10px #2df05e;
+  transition: color 0.2s ease;
+}
+
+/* ======================= 
+Guess Section Styling 
+======================= */
+#guessSection {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+#guessSection label {
+  font-size: 1.15rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  border: 1px solid #333;
+  box-shadow: 0 0 8px #64ffda66;
+  outline: none;
+  padding: 10px 14px;
+  color: black;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+#guessSection label:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(100, 255, 218, 0.35);
+}
+/* Text input styling */
+#guessSection input[type="text"] {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 1.1rem;
+  text-align: center;
+  width: 120px;
+  transition: all 0.2s ease;
+}
+
+/* Focus effect for text input */
+#guessSection input[type="text"]:focus {
+  border-color: #64ffda;
+  box-shadow: 0 0 8px #64ffda66;
+  background-color: #1a1a1a;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* Button styling */
+#guessSection button {
+  background: linear-gradient(135deg, #64ffda, #73d7ff);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: bold;
+  font-family: "Segoe UI", Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(100, 255, 218, 0.25);
+  transition: all 0.2s ease;
+  font-size: 1.02rem;
+}
+
+/* Button hover effect*/
+#guessSection button:hover {
+  transform: translateY(1px);
+  box-shadow: 0 6px 14px rgba(100, 255, 218, 0.35);
+}
+
+/* Button clicked effect */
+#guessSection button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(100, 255, 218, 0.25);
+}
+
+
+/* =======================
+Pulse animation for main game area
+======================= */
+.pulse {
+  animation: pulsePink 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes pulsePink {
+  0% {
+    box-shadow: 0 0 16px #ff48a5;  /* soft pink */
+  }
+  100% {
+    box-shadow: 0 0 32px #ff48a5;  /* stronger pink */
+  }
+}
+
+
+

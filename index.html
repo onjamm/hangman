@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+    <title>THE GALLOWS</title>
+  </head>
+
+  <body>
+    <!-- Player Form -->
+    <form id="playerForm">
+      <label for="firstname"></label>
+      <input
+        type="text"
+        id="firstname"
+        name="firstname"
+        placeholder="First Name"
+      />
+      <br /><br />
+      <label for="lastname"></label>
+      <input
+        type="text"
+        id="lastname"
+        name="lastname"
+        placeholder="Last Name"
+      />
+      <br /><br />
+      <input type="button" onclick="beginGame()" value="Start Game!" />
+    </form>
+
+
+
+    <main id="main">
+      <!-- Game Area  -->
+      <div id="gameArea" style="display: none">
+        <h2 id="gameTitle" class="title-pulse">HANGMAN</h2>
+
+        <!-- Game Code -->
+        <div id="gameBoard" class="pulse">
+          <!-- Top row: Score, Name and Guessed Letters -->
+          <div class="top-row">
+            <div class="left-side">
+              <h3 id="displayName">Player Name...</h3>
+              <h3 id="scoreBoard">Score: 0</h3>
+            </div>
+            <div class="right-side">
+              <h3 id="guessedLetters">Guessed Letters:</h3>
+            </div>
+          </div>
+          <div id="hangman-container">
+            <pre id="hangman-post"></pre>
+            <pre id="hangman-figure"></pre>
+          </div>
+
+          <!-- UnderScores -->
+          <div id="word-container">
+            <div id="word"></div>
+          </div>
+
+          <!-- Day 6 Guess -->
+          <div
+            id="blanks"
+            style="font-family: monospace; letter-spacing: 0.2em"
+          ></div>
+          <div id="guessSection">
+            <label for="guess">&#10132;</label>
+            <input id="guess" type="text" name="guess" />
+            <button onclick="userGuess()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
