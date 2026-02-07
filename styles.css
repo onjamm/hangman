@@ -98,17 +98,17 @@ Game Title Styling
 }
 
 .title-pulse {
-    animation: titlePulsePink 1.6s ease-in-out infinite alternate;
+  animation: titlePulsePink 1.6s ease-in-out infinite alternate;
 }
 
 /* text-shadow: X-offset Y-offset Blur-radius Color */
 @keyframes titlePulsePink {
-    0% {
-        text-shadow: 2px 2px 4px #ff48a5;
-    }
-    100% {
-        text-shadow: 2px 2px 8px #ff48a5;
-    }
+  0% {
+    text-shadow: 2px 2px 4px #ff48a5;
+  }
+  100% {
+    text-shadow: 2px 2px 8px #ff48a5;
+  }
 }
 
 /* =======================
@@ -186,7 +186,6 @@ Game Area Styling
   margin: 0;
   padding-right: 10px;
 }
-
 
 /* =======================
 Hangman Figure and th Word
@@ -332,7 +331,6 @@ Guess Section Styling
   box-shadow: 0 2px 6px rgba(100, 255, 218, 0.25);
 }
 
-
 /* =======================
 Pulse animation for main game area
 ======================= */
@@ -342,12 +340,68 @@ Pulse animation for main game area
 
 @keyframes pulsePink {
   0% {
-    box-shadow: 0 0 16px #ff48a5;  /* soft pink */
+    box-shadow: 0 0 16px #ff48a5; /* soft pink */
   }
   100% {
-    box-shadow: 0 0 32px #ff48a5;  /* stronger pink */
+    box-shadow: 0 0 32px #ff48a5; /* stronger pink */
   }
 }
 
+/* =======================
+Embed styling (for iframes)
+======================= */
+body.embed {
+  min-height: 0;
+  height: auto;
+  overflow: hidden; /* keeps it clean inside iframe */
+  background-attachment: scroll; /* avoid fixed inside iframe */
+  display: block; /* stop full-page centering flex */
+}
 
+/* Make main behave like a normal document flow */
+body.embed #main {
+  margin-top: 0;
+  height: auto;
+  padding: 16px 0;
+}
 
+/* Scale the whole game area to fit smaller widths */
+body.embed #gameArea {
+  width: min(100%, 520px);
+  margin: 0 auto;
+}
+
+/* Make the board responsive instead of fixed 400x400 */
+body.embed #gameBoard {
+  width: min(100%, 400px);
+  height: auto;
+  aspect-ratio: 1 / 1; /* keeps it square */
+}
+
+/* Keep top row from forcing overflow */
+body.embed .top-row {
+  padding: 16px;
+  gap: 10px;
+}
+
+/* Prevent guessed letters from blowing out the layout */
+body.embed #guessedLetters {
+  max-width: 140px;
+}
+
+/* Make hangman box scale with the board */
+body.embed #hangman-container {
+  width: min(100%, 260px);
+}
+
+/* Make the guess section not rely on absolute positioning */
+body.embed #guessSection {
+  position: static;
+  margin-top: 12px;
+  padding-bottom: 10px;
+}
+
+/* Make input/button wrap on small widths */
+body.embed #guessSection {
+  flex-wrap: wrap;
+}
